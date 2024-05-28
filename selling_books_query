@@ -1,0 +1,22 @@
+WITH book_sales AS (
+  SELECT
+    b.book_id,
+    b.title,
+    SUM(oi.quantity) AS total_sold
+  FROM
+    books b
+    JOIN order_items oi ON b.book_id = oi.book_id
+  GROUP BY
+    b.book_id,
+    b.title
+)
+SELECT
+  *
+FROM
+  book_sales
+ORDER BY
+  total_sold DESC
+LIMIT 10;
+SELECT * FROM books;
+
+SHOW TABLES;
