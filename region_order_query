@@ -1,0 +1,17 @@
+WITH region_orders AS (
+  SELECT
+    c.address,
+    AVG(o.total) AS avg_order_value
+  FROM
+    customers c
+    JOIN orders o ON c.customer_id = o.customer_id
+  GROUP BY
+    c.address
+)
+SELECT
+  *
+FROM
+  region_orders
+ORDER BY
+  avg_order_value DESC;
+  SHOW TABLES;
