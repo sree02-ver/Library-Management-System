@@ -1,0 +1,28 @@
+INSERT INTO customers (customer_id, customer_name, email, address) VALUES
+  (1110, 'Arun', 'arun@emailexample.com', 'Noida'),
+  (2120, 'Smith', 'smith@example.com', 'California'),
+  (3130, 'Bose', 'bose@example.com', 'Pune'),
+  (4140, 'Alia', 'alia@example.com', 'New York'),
+  (5150, 'Manu', 'manu@example.com', 'Florida');
+
+INSERT INTO books (book_id, title, author, price) VALUES
+  (1, 'The Rise', 'Sharma', 19.99),
+  (2, 'The Rule', 'Ashok', 14.99),
+  (3, 'The Book', 'Ajay', 24.99),
+  (4, 'Books', 'Aman', 9.99),
+  (5, 'A Book', 'Aritha', 29.99);
+
+INSERT INTO orders (order_id, customer_id, order_date, total) VALUES
+  (1, 1110, '2023-01-01', 50.00),
+  (2, 2120, '2021-03-05', 30.00),
+  (3, 3130, '2022-02-10', 70.00),
+  (4, 4140, '2020-11-15', 40.00),
+  (5, 5150, '2022-10-20', 60.00);
+
+INSERT INTO order_items (order_item_id, order_id, book_id, quantity, price) VALUES
+  (1, 1, 1, 2, 19.99),
+  (2, 1, 2, 1, 14.99),
+  (3, 2, 3, 2, 24.99),
+  (4, 3, 4, 3, 9.99),
+  (5, 4, 5, 1, 29.99),
+  (6, 5, 1, 2, 19.99);
