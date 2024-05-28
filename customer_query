@@ -1,0 +1,40 @@
+CREATE DATABASE IF NOT EXISTS bookstore;
+USE bookstore;
+
+-- Create the customers table
+CREATE TABLE IF NOT EXISTS customers (
+  customer_id INT PRIMARY KEY,
+  customer_name VARCHAR(50),
+  email VARCHAR(100),
+  address VARCHAR(200)
+);
+
+-- Create the books table (you can add similar statements for other tables)
+CREATE TABLE IF NOT EXISTS books (
+  book_id INT PRIMARY KEY,
+  title VARCHAR(100),
+  author VARCHAR(50),
+  price DECIMAL(10, 2)
+);
+
+-- You can optionally insert sample data here if needed
+
+-- Now, execute your query
+SELECT
+  c.customer_id,
+  c.customer_name,
+  SUM(oi.price * oi.quantity) AS total_spent
+FROM
+  customers c
+  JOIN orders o ON c.customer_id = o.customer_id
+  JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY
+  c.customer_id,
+  c.customer_name
+ORDER BY
+  total_spent DESC
+LIMIT 10;
+
+-- Finally, show the tables to verify
+SHOW TABLES;
+SELECT * FROM customers;
